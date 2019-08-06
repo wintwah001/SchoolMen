@@ -1,0 +1,5 @@
+.customDiv {
+    background: linear-gradient(45deg, #4099ff, #73b4ff);
+    min-height: 200px;
+	text-align: center; 
+}

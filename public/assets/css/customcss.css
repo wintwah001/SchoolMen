@@ -1,0 +1,104 @@
+.custommenu{
+	//text-align: center;
+	font-size: 1em;
+	//color: #ffffff;
+	//background-color: #3385ff;
+	font-weight: 10px;
+
+}
+
+.container{
+	padding-top: 20px;
+}
+
+
+#trbg{
+	background-color: #a1fcad;
+}
+
+
+
+
+.viewth,.viewtd{
+	text-align: center;
+}
+
+
+.panel-greencustom{
+	background-color: #00cc66;
+	color: white;
+}
+
+.panel-orangecustom{
+	background-color: #ffbb33;
+	color: white;
+}
+
+.panel-redcustom{
+	background-color: #f44f2e;
+	color: white;
+}
+
+.panel-tealcustom{
+	background-color: #00ccff;
+	color: white;
+}
+
+.panel-violetcustom{
+	background-color: #a366ff;
+	color: white;
+}
+
+.panel-browncustom{
+	background-color: #c68c53;
+	color: white;
+}
+
+.panel-redorgcustom{
+	background-color: #ff751a;
+	color: white;
+}
+
+.panel-pinkcustom{
+	background-color: #ff4dcd;
+	color: white;
+}
+
+.panel-backupcustom{
+	background-color: #00e6e6;
+	color: #ffffff;
+}
+
+.panel-restorecustom{
+	background-color: #ff6666;
+	color: #ffffff;
+}
+
+.panel-limecustom{
+	background-color: #33ff33;
+	color: #ffffff;
+}
+
+a{
+	text-decoration: none;
+}
+
+
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 12px;
+  line-height: 1.428571429;
+  border-radius: 15px;
+  /*background-color: #77b300;*/
+  color: #ffffff;
+}
+
+.theadcustom{
+	background-color:#1a75ff ;
+	color: #ffffff;
+}
+
+
