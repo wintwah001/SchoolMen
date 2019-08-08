@@ -103,7 +103,7 @@
 
                 </div>
                 <div class="card-body">
-                  <form action="/admin/timetables/addtimetable" method="post">
+                  <form action="/admin/timetables/addtimetable" name="frm" method="post">
                        <div class="row">
                        <div class="col-md-6">
                          <div class="form-group">
@@ -130,7 +130,7 @@
                          <div class="form-group">
                            <div class="form-material floating">
                            <label class="contact3-lastname">Class</label>
-                           <select class="form-control" name="class">
+                           <select class="form-control" id="class" name="class">
                              <option value="5">Grade 5</option>
                              <option value="6">Grade 6</option>
                              <option value="7">Grade 7</option>
@@ -144,8 +144,8 @@
                       <div class="col-md-6">
                           <div class="form-group">
                             <div class="form-material floating">
-                            <label class="contact3-lastname">Class</label>
-                              <select class="form-control" name="section">
+                            <label class="contact3-lastname">Section</label>
+                              <select class="form-control" id="section" name="section">
                               <option selected>select Section</option>
                               <option value="a">Section A</option>
                               <option value="b">Section B</option>
@@ -183,8 +183,8 @@
                               </select>
                             </div>
                           </div>
-                  <button type="submit" class="btn btn-danger pull-right">Cancel</button>
-                  <button type="submit" class="btn btn-success pull-right">Submit</button>
+                  <button type="reset" class="btn btn-danger pull-right">Cancel</button>
+                  <button type="button" onclick="checkdu();" class="btn btn-success pull-right">Submit</button>
                   <div class="clearfix"></div>
                 </form>
               </div>
@@ -250,6 +250,16 @@
   <!-- Material Dashboard DEMO methods, don't include it in your project! -->
   <script src="/assets/demo/demo.js"></script>
   <script>
+  function checkdu() {
+    var data = {day : $('#day').val(),time : $('#time').val(), cla : $('#class').val(), sec: $('#section').val()}
+     $.ajax({url: "/admin/timetables/duplicate", data:data, type: 'POST', success: function (result) {
+       if (result.status == false) {
+         alert(result.msg);
+       }else {
+         frm.submit();
+       }
+     }});
+  }
     $(document).ready(function() {
 
       var subject = [<%- subj %>];

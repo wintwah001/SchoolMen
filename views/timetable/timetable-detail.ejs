@@ -69,29 +69,101 @@
     <div class="content">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-md-12">
             <div class="card">
               <div class="card-header card-header-success">
-                <h4 class="card-title">Grade 5</h4>
+                <h4 class="card-title">TimeTable</h4>
                 <p class="card-category"></p>
 
               </div>
               <div class="card-body">
                   <div class="container">
-                   <div class="row">
-                    <div class="col-md-4">
-                      <a href="/admin/timetables/timetableDetail/5/a">Section A</a>
-                    </div>
+                    <div class="row">
+                      <div class="col-sm-10 col-sm-offset-1">
+                        <!-- Introduction -->
+                        <h2 class="h3 m-t-lg m-b">Time Table</h2>
+                        <!-- Classic table -->
+                        <% if(subj.length < 35){%>
+                          <h2>Time Table is not complete for loading</h2>
+                        <%}else{%>
+                        <h2 class="section-title">Grade <%= subj[0].class %> Section <%= subj[0].section.toUpperCase() %> Class</h2>
+                        <div class="card">
 
-                    <div class="col-md-4">
-                      <a href="/admin/timetables/timetableDetail/5/b">Section B</a>
-                    </div>
+                          <div class="table-responsive">
+                            <table class="table table-borderless table-header-bg text-center m-b-0">
+                              <thead>
+                                <tr>
+                                  <th class="w-15"></th>
+                                  <th class="text-center">1</th>
+                                  <th class="text-center">2</th>
+                                  <th class="text-center">3</th>
+                                  <th class="text-center">4</th>
+                                  <th class="text-center">5</th>
+                                  <th class="text-center">6</th>
+                                  <th class="text-center">7</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td></td>
+                                  <td></td>
+                                  <td></td>
+                                  <td></td>
+                                  <td></td>
+                                  <td></td>
+                                  <td></td>
+                                  <% for(var i = 0; i< subj.length; i++){%>
+                                    <%if(i== 0 || i%7 == 0){%>
+                                    </tr>
+                                    <tr>
+                                      <td class="font-500 text-left" id="t<%=i%>"></td>
+                                      <script type="text/javascript">
+                                      console.log();
+                                        switch ('<%=subj[i].day%>') {
+                                          case '1':
+                                            $('#t<%=i%>').html('Monday')
+                                            break;
+                                          case '2':
+                                            $('#t<%=i%>').html('Thursday')
+                                            break;
+                                          case '3':
+                                            $('#t<%=i%>').html('Wednesday')
+                                            break;
+                                          case '4':
+                                            $('#t<%=i%>').html('Tuesday')
+                                            break;
+                                          case '5':
+                                            $('#t<%=i%>').html('Friday')
+                                            break;
+                                          default:
 
-                    <div class="col-md-4">
-                      <a href="/admin/timetables/timetableDetail/5/c">Section C</a>
-                    </div>
+                                        }
+                                      </script>
+                                    <%}%>
 
-                  </div>
+                                    <td><%= subj[i].subname %></td>
+
+                                  <%}%>
+                                </tr>
+
+
+                              </tbody>
+                            </table>
+                          </div>
+
+                          <!-- .card-block -->
+                        </div>
+                        <%}%>
+                        <!-- .card -->
+                        <!-- End Classic table -->
+                        <!-- End Introduction -->
+
+
+
+                        <!-- Payments -->
+
+                      </div>
+                    </div>
                 </div>
               <br>
 
@@ -101,166 +173,6 @@
           </div>
         </div>
       </div>
-      <div class="col-md-6">
-        <div class="card">
-          <div class="card-header card-header-success">
-            <h4 class="card-title">Grade 6</h4>
-            <p class="card-category"></p>
-
-          </div>
-          <div class="card-body">
-              <div class="container">
-               <div class="row">
-                <div class="col-md-4">
-                  <a href="/admin/timetables/timetableDetail/6/a">Section A</a>
-                </div>
-
-                <div class="col-md-4">
-                  <a href="/admin/timetables/timetableDetail/6/b">Section B</a>
-                </div>
-
-                <div class="col-md-4">
-                  <a href="/admin/timetables/timetableDetail/6/c">Section C</a>
-                </div>
-
-              </div>
-            </div>
-          <br>
-
-          <div class="clearfix"></div>
-        </form>
-
-      </div>
-    </div>
-  </div>
-  <div class="col-md-6">
-    <div class="card">
-      <div class="card-header card-header-success">
-        <h4 class="card-title">Grade 7</h4>
-        <p class="card-category"></p>
-
-      </div>
-      <div class="card-body">
-          <div class="container">
-           <div class="row">
-            <div class="col-md-4">
-              <a href="/admin/timetables/timetableDetail/7/a">Section A</a>
-            </div>
-
-            <div class="col-md-4">
-              <a href="/admin/timetables/timetableDetail/7/b">Section B</a>
-            </div>
-
-            <div class="col-md-4">
-              <a href="/admin/timetables/timetableDetail/7/c">Section C</a>
-            </div>
-
-          </div>
-        </div>
-      <br>
-
-      <div class="clearfix"></div>
-    </form>
-
-  </div>
-</div>
-</div>
-<div class="col-md-6">
-  <div class="card">
-    <div class="card-header card-header-success">
-      <h4 class="card-title">Grade 8</h4>
-      <p class="card-category"></p>
-
-    </div>
-    <div class="card-body">
-        <div class="container">
-         <div class="row">
-          <div class="col-md-4">
-            <a href="/admin/timetables/timetableDetail/8/a">Section A</a>
-          </div>
-
-          <div class="col-md-4">
-            <a href="/admin/timetables/timetableDetail/8/b">Section B</a>
-          </div>
-
-          <div class="col-md-4">
-            <a href="/admin/timetables/timetableDetail/8/c">Section C</a>
-          </div>
-
-        </div>
-      </div>
-    <br>
-
-    <div class="clearfix"></div>
-  </form>
-
-</div>
-</div>
-</div>
-<div class="col-md-6">
-  <div class="card">
-    <div class="card-header card-header-success">
-      <h4 class="card-title">Grade 9</h4>
-      <p class="card-category"></p>
-
-    </div>
-    <div class="card-body">
-        <div class="container">
-         <div class="row">
-          <div class="col-md-4">
-            <a href="/admin/timetables/timetableDetail/9/a">Section A</a>
-          </div>
-
-          <div class="col-md-4">
-            <a href="/admin/timetables/timetableDetail/9/b">Section B</a>
-          </div>
-
-          <div class="col-md-4">
-            <a href="/admin/timetables/timetableDetail/9/c">Section C</a>
-          </div>
-
-        </div>
-      </div>
-    <br>
-
-    <div class="clearfix"></div>
-  </form>
-
-</div>
-</div>
-</div>
-<div class="col-md-6">
-  <div class="card">
-    <div class="card-header card-header-success">
-      <h4 class="card-title">Grade 10</h4>
-      <p class="card-category"></p>
-
-    </div>
-    <div class="card-body">
-        <div class="container">
-         <div class="row">
-          <div class="col-md-4">
-            <a href="/admin/timetables/timetableDetail/10/a">Section A</a>
-          </div>
-
-          <div class="col-md-4">
-            <a href="/admin/timetables/timetableDetail/10/b">Section B</a>
-          </div>
-
-          <div class="col-md-4">
-            <a href="/admin/timetables/timetableDetail/10/c">Section C</a>
-          </div>
-
-        </div>
-      </div>
-    <br>
-
-    <div class="clearfix"></div>
-  </form>
-
-</div>
-</div>
-</div>
     </div>
   </div>
 </div>

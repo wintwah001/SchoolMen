@@ -34,4 +34,26 @@ router.get('/timetablelist',function(req,res,next){
     res.render('timetable/timetable',{subject:rtn});
   });
 });
+
+router.get('/timetableDetail/:class/:section',function(req,res,next){
+  // res.end(req.params.section);
+  Timetable.find({ $and:[{class:req.params.class},{section:req.params.section}]},function(err,rtn){
+    if(err) throw err;
+    res.render('timetable/timetable-detail',{subj:rtn});
+  });
+});
+
+router.post('/duplicate',function (req,res) {
+  Timetable.find({ $and:[{class:req.body.cla},{day: req.body.day},{time: req.body.time},{section:req.body.sec}] },function (err,rtn) {
+    if(err) throw err;
+    if(rtn.length) {
+      console.log('have');
+      res.json({ status: false, msg: 'Timetable Already inserted!'});
+    }
+    else {
+      console.log('not have');
+      res.json({ status: true,msg: 'Timetable inserted!'});
+    }
+  })
+})
 module.exports = router;
