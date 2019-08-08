@@ -5,9 +5,10 @@ var Subject= require('../../model/Subject');
 var Teacher= require('../../model/Teacher');
 
 router.get('/addtimetable',(req,res)=>{
-  Teacher.find(function (err,rtn){
+  Subject.find({},{'subname': 1, _id: 0}).populate('teacher_id',{fullName:1, _id:0}).sort({teacher_id:1}).exec(function (err,rtn){
     if(err) throw err;
-    res.render('timetable/addtimetable',{teacher:rtn})
+    console.log(rtn);
+    res.render('timetable/addtimetable',{subj:rtn})
   })
 
 })

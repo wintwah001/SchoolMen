@@ -104,17 +104,13 @@
                 </div>
                 <div class="card-body">
                   <form action="/admin/timetables/addtimetable" method="post">
-
-
                        <div class="row">
                        <div class="col-md-6">
                          <div class="form-group">
                            <div class="form-material floating">
                            <label for="teacher_id">Select Teacher</label>
                            <select class="form-control" id="teacher_id" name="teacher_id" >
-                             <% for (var i=0; i< teacher.length; i++){%>
-                                 <option value="<%= teacher[i]._id%>"><%= teacher[i].fullName%></option>
-                             <%}%>
+
                            </select>
                          </div>
                        </div>
@@ -123,7 +119,8 @@
                        <div class="form-group">
                              <div class="form-material floating">
                                <label for="contact3-lastname">Subject Name</label>
-                                 <input class="form-control" type="text" id="subname" name="subname">
+                                 <select class="form-control" type="text" id="subname" name="subname">
+                                 </select>
                              </div>
                      </div>
                      </div>
@@ -145,14 +142,20 @@
                          </div>
                        </div>
                       <div class="col-md-6">
-                        <select class="browser-default custom-select custom-select-md mb-6">
-                        <option selected>select Section</option>
-                        <option value="a">Section A</option>
-                        <option value="b">Section B</option>
-                      </select>
+                          <div class="form-group">
+                            <div class="form-material floating">
+                            <label class="contact3-lastname">Class</label>
+                              <select class="form-control" name="section">
+                              <option selected>select Section</option>
+                              <option value="a">Section A</option>
+                              <option value="b">Section B</option>
+                              <option value="c">Section C</option>
+                            </select>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div><br>
+
                   <div class="form-group">
                         <label class="col-xs-2" for="time">Time:</label>
                               <div class="col-xs-10">
@@ -180,10 +183,6 @@
                               </select>
                             </div>
                           </div>
-
-
-
-
                   <button type="submit" class="btn btn-danger pull-right">Cancel</button>
                   <button type="submit" class="btn btn-success pull-right">Submit</button>
                   <div class="clearfix"></div>
@@ -252,6 +251,27 @@
   <script src="/assets/demo/demo.js"></script>
   <script>
     $(document).ready(function() {
+
+      var subject = [<%- subj %>];
+      console.log(subject);
+      addOptions('teacher_id', subject);
+      $("#teacher_id").on('change', function(){
+          var sub = $.grep( subject, function( n, i ) {
+            return n.teacher_id.fullName == $("#teacher_id").val();
+          });
+          addOptions('subname', sub);
+      });
+      function addOptions(id, arr){
+          $("#"+id).children().remove();
+          for(var idx in arr){
+              if(idx == 0) $("#"+id).append(new Option('Select '+((id == 'teacher_id')? "Teacher": "Subject"), ''));
+              if(idx == 0 || ((id == 'teacher_id')? arr[idx][id].fullName != arr[idx-1][id].fullName : arr[idx][id] != arr[idx-1][id])){
+                  $("#"+id).append(new Option(((id == 'teacher_id')? arr[idx][id].fullName:arr[idx][id]),((id == 'teacher_id')? arr[idx][id].fullName:arr[idx][id])));
+              }
+          }
+      }
+
+
       $().ready(function() {
         $sidebar = $('.sidebar');
 

@@ -40,14 +40,6 @@ router.get('/home',(req,res)=>{
   res.render("home")
 });
 
-
-
-
-
-
-
-
-
 router.get('/premission',(req,res)=>{
   res.render("permission")
 });
