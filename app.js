@@ -11,7 +11,7 @@ var teacher = require('./routes/admin/teachers');
 var staff = require('./routes/admin/staffs');
 var subject = require('./routes/admin/subjects');
 var timetable = require('./routes/admin/timetables');
-
+var attendance = require('./routes/admin/attendances');
 
 var users = require('./routes/users');
 
@@ -38,6 +38,7 @@ app.use('/admin/teachers', teacher);
 app.use('/admin/staffs', staff);
 app.use('/admin/subjects', subject);
 app.use('/admin/timetables', timetable);
+app.use('/admin/attendances', attendance);
 
 app.use('/users', users);
 

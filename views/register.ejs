@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Admin Login</title>
+	<title>Staff Login</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
-	<link rel="icon" type="image/png" href="images/icons"/>
+	<link rel="icon" type="image/png" href="/images/icons/favicon.ico"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="/vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="/vendor/animate/animate.css">
 <!--===============================================================================================-->
@@ -31,40 +31,35 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form p-l-55 p-r-55 p-t-178" action="/admin" method="post">
+				<form class="login100-form validate-form p-l-55 p-r-55 p-t-178" action="/register" method="post">
 					<span class="login100-form-title">
-						Admin Sign In
+						Admin Register
 					</span>
 					<div id="main">
-					<div class="wrap-input100 validate-input m-b-16" data-validate="Please enter user email">
+					<div class="wrap-input100 validate-input m-b-16" data-validate="Please enter username">
+						<input class="input100" type="text" name="name" placeholder="Username">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-16" data-validate="Please enter email">
 						<input class="input100" type="email" name="email" placeholder="Useremail">
 						<span class="focus-input100"></span>
 					</div>
 
-					<div class="wrap-input100 validate-input" data-validate = "Please enter password" >
-						<input class="input100" type="password" name="password" placeholder="Password" id="password">
+					<div class="wrap-input100 validate-input" data-validate = "Please enter password">
+						<input class="input100" type="password" name="password" placeholder="Password">
 						<span class="focus-input100"></span>
-					</div><br><br>
-
+					</div>
 
 					<div class="container-login100-form-btn">
 						<button type="submit" class="btn-success" style="width: 40%; height:50px; border-radius: 20px 20px 20px 20px;">
 
-							<center><div style="padding-top: 10px; font-size: 20px" id="signin">Sign in</div></center>
+							<center><div style="padding-top: 10px; font-size: 20px">Register</div></center>
 
 					</button>
 					</div>
+                    <br><br><br>
 
-
-				</div><br><br><br>
-			<div class="flex-col-c p-t-170 p-b-40">
-					<span class="txt1 p-b-9">
-						Don’t have an account?
-					</span>
-
-					<a href="/register" class="txt3">
-						Sign up now
-					</a>
 				</div>
 				</form>
 			</div>
@@ -73,9 +68,9 @@
 
 
 <!--===============================================================================================-->
-	<script src="/vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
-	<script src="/vendor/animsition/js/animsition.min.js"></script>
+	<script src="vendor/animsition/js/animsition.min.js"></script>
 <!--===============================================================================================-->
 	<script src="/vendor/bootstrap/js/popper.js"></script>
 	<script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
@@ -88,14 +83,6 @@
 	<script src="/vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
 	<script src="/js/main.js"></script>
-	<script>
-		// $('#password').keypress(function(event){
-		// 	if(event.keyCode === 13){
-		// 		$('#signin').click();
-		// 	}
-		// });
-
-	</script>
 
 </body>
 </html>

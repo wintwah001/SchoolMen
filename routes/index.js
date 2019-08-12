@@ -4,6 +4,7 @@ var Teacher=require('../model/Teacher');
 var Student= require('../model/Student');
 var Staff= require('../model/Staff');
 var Subject=require('../model/Subject');
+var Admin = require('../model/Admin');
 // var student = require('./students');
 // var teacher = require('./teachers');
 // var timetable = require('./timetables');
@@ -21,6 +22,17 @@ router.get('/admin', function(req, res) {
   res.render('alogin')
 });
 
+router.post('/admin', function (req, res) {
+  Admin.findOne({email:req.body.email},(err,rtn)=>{
+    if(err) throw err;
+    if(rtn != null && rtn.password == req.body.password){
+      res.redirect('/home');
+    }else {
+      res.redirect('/admin');
+    }
+  })
+})
+
 router.get('/parent', function(req, res) {
   res.render('plogin')
 });
@@ -34,7 +46,16 @@ router.get('/teacher', function(req, res) {
   res.render('tlogin')
 });
 
-
+router.post('/teacher', function (req,res) {
+  Teacher.findOne({email:req.body.email},(err,rtn)=>{
+    if(err) throw err;
+    if(rtn != null && req.body.password == rtn.password){
+      res.redirect('/home')
+    }else {
+      res.redirect('/teacher');
+    }
+  })
+})
 
 router.get('/home',(req,res)=>{
   res.render("home")
@@ -83,5 +104,20 @@ router.get('/backup',(req,res)=>{
 router.get('/restore',(req,res)=>{
   res.render("addstudent")
 });
+
+router.get('/register',(req,res)=>{
+  res.render("register")
+});
+
+router.post('/register',(req,res)=>{
+  var admin = new Admin();
+  admin.name = req.body.name;
+  admin.email = req.body.email;
+  admin.password = req.body.password;
+  admin.save((err,rtn)=>{
+    if(err) throw err;
+    res.redirect('/');
+  })
+})
 
 module.exports = router;
