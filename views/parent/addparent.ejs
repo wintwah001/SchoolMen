@@ -3,22 +3,21 @@
 
 <head>
   <meta charset="utf-8" />
-  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="/assets/img/favicon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    Student
+    Add Staff
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
   <!-- CSS Files -->
-  <link href="../assets/css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
+  <link href="/assets/css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
-  <link href="../assets/demo/demo.css" rel="stylesheet" />
-  <link href="elements.css" rel="stylesheet">
-  <script src="my_js.js"></script>
+  <link href="/assets/demo/demo.css" rel="stylesheet" />
+  <script src="../my_js.js"></script>
 
 </head>
 
@@ -31,99 +30,11 @@
         Tip 2: you can also add an image using data-image tag
       -->
       <div class="logo">
-        <a href="../../victory/index.html" class="simple-text logo-normal">
-          <img src="../assets/img/galaxy.png" alt="" style="width: 90px; height: 50px;">Galaxy
+        <a href="/victory/index.html" class="simple-text logo-normal">
+         <img src="/assets/img/galaxy.png" alt="" style="width: 90px; height: 50px;">Galaxy
         </a>
       </div>
-      <div class="sidebar-wrapper">
-        <ul class="nav">
-          <li class="nav-item   ">
-            <a class="nav-link" href="/home">
-              <i class="material-icons">account_balance</i>
-              <p>Home</p>
-            </a>
-          </li>
-          <li class="nav-item  ">
-          <a class="nav-link" href="/permission">
-            <i class="material-icons">new_releases</i>
-            <p>Permission</p>
-          </a>
-        </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="/blog">
-              <i class="material-icons">library_books</i>
-              <p>Blog</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/student">
-              <i class="material-icons">group_add</i>
-              <p>Student</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="/teacher">
-              <i class="material-icons">person_add</i>
-              <p>Teacher</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="/attendance">
-              <i class="material-icons">how_to_reg</i>
-              <p>Student Attendance</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="/staff">
-              <i class="material-icons">directions_walk</i>
-              <p>Staff</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="/examresult">
-              <i class="material-icons">notifications</i>
-              <p>Exam Result</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="/timetable">
-              <i class="material-icons">list_alt</i>
-              <p>Time Table</p>
-            </a>
-          </li>
-          <li class="nav-item">
-          <a class="nav-link" href="/examination">
-            <i class="material-icons">library_add</i>
-            <p>Examination</p>
-          </a>
-        </li>
-
-          <li class="nav-item active ">
-            <a class="nav-link" href="/parent">
-              <i class="material-icons">wc</i>
-              <p>Parent</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-          <a class="nav-link" href="/remark">
-            <i class="material-icons">announcement</i>
-            <p>Remark</p>
-          </a>
-        </li>
-        <li class="nav-item ">
-          <a class="nav-link" href="/backup">
-            <i class="material-icons">cloud_upload</i>
-            <p>Back Up</p>
-          </a>
-        </li>
-        <li class="nav-item ">
-          <a class="nav-link" href="/restore">
-            <i class="material-icons">cloud_download</i>
-            <p>Restore</p>
-          </a>
-        </li>
-        </ul>
-      </div>
+      <% include ../partial/sidebar %>
     </div>
     <div class="main-panel">
       <!-- Navbar -->
@@ -139,7 +50,7 @@
             <span class="navbar-toggler-icon icon-bar"></span>
           </button>
           <div class="collapse navbar-collapse justify-content-end">
-            <form class="navbar-form">
+            <!-- <form class="navbar-form">
               <div class="input-group no-border">
                 <input type="text" value="" class="form-control" placeholder="Search...">
                 <button type="submit" class="btn btn-white btn-round btn-just-icon">
@@ -147,10 +58,20 @@
                   <div class="ripple-container"></div>
                 </button>
               </div>
-            </form>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </form> -->
             <ul class="navbar-nav">
 
-
+              <li class="nav-item">
+                <a class="nav-link" href="#pablo">
+                  <a href="/admin/staffs/stafflist">
+                    <i class="material-icons" style="font-size: 35px;">subdirectory_arrow_left
+                    </i>
+                    <p class="d-lg-none d-md-block">
+                      Stats
+                    </p>
+                  </a>
+                </a>
+              </li>
               <li class="nav-item dropdown">
                 <a class="nav-link" href="#pablo" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="material-icons">person</i>
@@ -159,10 +80,10 @@
                   </p>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
-                  <a class="dropdown-item" href="../../victory/index.html">Go To Website</a>
-                  <a class="dropdown-item" href="../../Login_v8/chgpsw.html">Change Password</a>
+                  <a class="dropdown-item" href="/victory/index.html">Go To Website</a>
+                  <a class="dropdown-item" href="/Login_v8/chgpsw.html">Change Password</a>
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item btn btn-danger active" href="../../Login_v8/index.html">Log out</a>
+                  <a class="dropdown-item btn btn-danger active" href="/Login_v8/index.html">Log out</a>
                 </div>
               </li>
             </ul>
@@ -173,53 +94,108 @@
       <div class="content">
         <div class="container-fluid">
           <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-10">
               <div class="card">
-                <div id="view">
-                  <div class="card-header card-header-success">
-                    <h4 class="card-title ">Student Table</h4>
-                    <p class="card-category"></p>
-                  </div>
-                  <div class="card-body">
-                    <div class="table-responsive">
-                      <table class="table table-hover">
-                        <thead class=" text-primary">
-                          <th>
-                            S-ID
-                          </th>
-                          <th>
-                            Username
-                          </th>
-                          <th>
-                            Password
-                          </th>
+                <div class="card-header card-header-success">
+                  <h4 class="card-title">Add Satff</h4>
+                  <p class="card-category"></p>
 
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>
-                              G5-1
-                            </td>
-                            <td>
-                              *********
-                            </td>
-                            <td>
-                              ********
-                            </td>
-                          </tr>
+                </div>
+                <div class="card-body">
+                  <form action="/admin/staffs/staffadd" method="post">
+                    <div class="row">
 
-                        </tbody>
-                      </table>
+                      <div class="col-md-5">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Name</label>
+                          <input type="text" class="form-control" required="" name="name">
+                        </div>
+                      </div>
+                      <div class="col-md-5">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Email</label>
+                          <input type="email" class="form-control" required="" name="email">
+                        </div>
+                      </div>
+                      <div class="col-md-5">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Password</label>
+                          <input type="password" class="form-control" required="" name="pwd">
+                        </div>
+                      </div>
+                      <div class="col-md-5">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Gender</label>
+                          <input type="text" class="form-control" required="" name="gender">
+                        </div>
+                      </div>
                     </div>
-                  </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">NRC</label>
+                          <input type="text" class="form-control" required="" name="NRC">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="bmd-label-floating"></label>
+                          <input type="date" class="form-control" required="" name="dob"  min="1900-01-01" max="2019-01-01">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Duty</label>
+                          <input type="text" class="form-control" required="" name="duty">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Position</label>
+                          <input type="text" class="form-control" required="" name="position">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Phone Number</label>
+                          <input type="text" class="form-control" required="" name="phno">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Address</label>
+                          <input type="text" class="form-control" required="" name="address">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label>About Me</label>
+                          <div class="form-group">
+                            <label class="bmd-label-floating">Description</label>
+                            <textarea class="form-control" rows="3"></textarea>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <button type="submit" class="btn btn-danger pull-right">Cancel</button>
+                    <button type="submit" class="btn btn-success pull-right">Submit</button>
+                    <div class="clearfix"></div>
+                  </form>
                 </div>
               </div>
             </div>
+
           </div>
         </div>
       </div>
 
-      <script src="js/customjs.js"></script>
+      <script src="../js/customjs.js"></script>
 
 
       <div id="add" class="tab-pane fade">
@@ -402,34 +378,34 @@
 
 
   <!--   Core JS Files   -->
-  <script src="../assets/js/core/jquery.min.js"></script>
-  <script src="../assets/js/core/popper.min.js"></script>
-  <script src="../assets/js/core/bootstrap-material-design.min.js"></script>
-  <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+  <script src="/assets/js/core/jquery.min.js"></script>
+  <script src="/assets/js/core/popper.min.js"></script>
+  <script src="/assets/js/core/bootstrap-material-design.min.js"></script>
+  <script src="/assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
   <!-- Plugin for the momentJs  -->
-  <script src="../assets/js/plugins/moment.min.js"></script>
+  <script src="/assets/js/plugins/moment.min.js"></script>
   <!--  Plugin for Sweet Alert -->
-  <script src="../assets/js/plugins/sweetalert2.js"></script>
+  <script src="/assets/js/plugins/sweetalert2.js"></script>
   <!-- Forms Validations Plugin -->
-  <script src="../assets/js/plugins/jquery.validate.min.js"></script>
+  <script src="/assets/js/plugins/jquery.validate.min.js"></script>
   <!-- Plugin for the Wizard, full documentation here: https://github.com/VinceG/twitter-bootstrap-wizard -->
-  <script src="../assets/js/plugins/jquery.bootstrap-wizard.js"></script>
+  <script src="/assets/js/plugins/jquery.bootstrap-wizard.js"></script>
   <!--  Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
-  <script src="../assets/js/plugins/bootstrap-selectpicker.js"></script>
+  <script src="/assets/js/plugins/bootstrap-selectpicker.js"></script>
   <!--  Plugin for the DateTimePicker, full documentation here: https://eonasdan.github.io/bootstrap-datetimepicker/ -->
-  <script src="../assets/js/plugins/bootstrap-datetimepicker.min.js"></script>
+  <script src="/../assets/js/plugins/bootstrap-datetimepicker.min.js"></script>
   <!--  DataTables.net Plugin, full documentation here: https://datatables.net/  -->
-  <script src="../assets/js/plugins/jquery.dataTables.min.js"></script>
+  <script src="/assets/js/plugins/jquery.dataTables.min.js"></script>
   <!--  Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs  -->
-  <script src="../assets/js/plugins/bootstrap-tagsinput.js"></script>
+  <script src="/assets/js/plugins/bootstrap-tagsinput.js"></script>
   <!-- Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
-  <script src="../assets/js/plugins/jasny-bootstrap.min.js"></script>
+  <script src="/assets/js/plugins/jasny-bootstrap.min.js"></script>
   <!--  Full Calendar Plugin, full documentation here: https://github.com/fullcalendar/fullcalendar    -->
-  <script src="../assets/js/plugins/fullcalendar.min.js"></script>
+  <script src="/assets/js/plugins/fullcalendar.min.js"></script>
   <!-- Vector Map plugin, full documentation here: http://jvectormap.com/documentation/ -->
-  <script src="../assets/js/plugins/jquery-jvectormap.js"></script>
+  <script src="/assets/js/plugins/jquery-jvectormap.js"></script>
   <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-  <script src="../assets/js/plugins/nouislider.min.js"></script>
+  <script src="/assets/js/plugins/nouislider.min.js"></script>
   <!-- Include a polyfill for ES6 Promises (optional) for IE11, UC Browser and Android browser support SweetAlert -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
   <!-- Library for adding dinamically elements -->
@@ -437,13 +413,13 @@
   <!--  Google Maps Plugin    -->
   <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
   <!-- Chartist JS -->
-  <script src="../assets/js/plugins/chartist.min.js"></script>
+  <script src="/assets/js/plugins/chartist.min.js"></script>
   <!--  Notifications Plugin    -->
-  <script src="../assets/js/plugins/bootstrap-notify.js"></script>
+  <script src="/assets/js/plugins/bootstrap-notify.js"></script>
   <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="../assets/js/material-dashboard.js?v=2.1.1" type="text/javascript"></script>
+  <script src="/assets/js/material-dashboard.js?v=2.1.1" type="text/javascript"></script>
   <!-- Material Dashboard DEMO methods, don't include it in your project! -->
-  <script src="../assets/demo/demo.js"></script>
+  <script src="/assets/demo/demo.js"></script>
   <script>
     $(document).ready(function() {
       $().ready(function() {

@@ -12,6 +12,7 @@ var staff = require('./routes/admin/staffs');
 var subject = require('./routes/admin/subjects');
 var timetable = require('./routes/admin/timetables');
 var attendance = require('./routes/admin/attendances');
+var partent = require('./routes/admin/parents');
 
 var users = require('./routes/users');
 
@@ -39,6 +40,7 @@ app.use('/admin/staffs', staff);
 app.use('/admin/subjects', subject);
 app.use('/admin/timetables', timetable);
 app.use('/admin/attendances', attendance);
+app.use('/admin/parents', partent);
 
 app.use('/users', users);
 

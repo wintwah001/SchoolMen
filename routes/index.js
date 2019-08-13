@@ -41,6 +41,19 @@ router.get('/staff', function(req, res) {
   res.render('slogin')
 });
 
+router.post('/staff', function(req, res) {
+  console.log(req.body.email,req.body.password);
+  Staff.findOne({email:req.body.email},function (err,rtn) {
+    console.log(rtn);
+    if(err) throw err;
+    if(rtn != null & rtn.password == req.body.password){
+      res.redirect('/home')
+    }else {
+      res.redirect('/');
+    }
+  })
+});
+
 
 router.get('/teacher', function(req, res) {
   res.render('tlogin')

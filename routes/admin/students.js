@@ -1,5 +1,8 @@
 var express = require('express');
 var router = express.Router();
+var multer = require('multer');
+var upload = multer({ dest:'public/images/uploads'});
+
 
 var Student= require('../../model/Student');
 
@@ -8,7 +11,7 @@ router.get('/add',(req,res)=>{
   res.render("student/addstudent")
 });
 
-router.post('/add',(req,res)=>{
+router.post('/add',upload.single('photo'),(req,res)=>{
 var student=new Student();
 student.fullName = req.body.sname;
 student.email = req.body.semail;
@@ -20,6 +23,7 @@ student.roll = req.body.roll;
 student.class = req.body.class;
 student.phNumber = req.body.phno;
 student.address = req.body.address;
+if(req.file) student.imgUrl = '/images/uploads/'+ req.file.filename;
 student.save(function(err,rtn){
   if(err) throw err;
   console.log(rtn);

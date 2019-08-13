@@ -17,8 +17,8 @@
   <link href="/assets/css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="/assets/demo/demo.css" rel="stylesheet" />
-  <link href="../elements.css" rel="stylesheet">
-  <script src="../my_js.js"></script>
+  <link href="/elements.css" rel="stylesheet">
+  <script src="/my_js.js"></script>
 
 </head>
 
@@ -31,11 +31,12 @@
         Tip 2: you can also add an image using data-image tag
       -->
       <div class="logo">
-        <a href="/victory/index.html" class="simple-text logo-normal">
+        <a href="../../victory/index.html" class="simple-text logo-normal">
           <img src="/assets/img/galaxy.png" alt="" style="width: 90px; height: 50px;">Galaxy
         </a>
       </div>
-        <% include ../partial/sidebar %>
+      <% include ../partial/sidebar %>
+
     </div>
     <div class="main-panel">
       <!-- Navbar -->
@@ -64,7 +65,7 @@
 
               <li class="nav-item">
                 <a class="nav-link" href="#pablo">
-                  <a href="/admin/students/add" id="popup" onclick="div_show()">
+                  <a href="/admin/parents/add" id="popup" onclick="div_show()">
                     <i class="material-icons">add_circle</i>
                     <p class="d-lg-none d-md-block">
                       Stats
@@ -72,6 +73,7 @@
                   </a>
                 </a>
               </li>
+
               <li class="nav-item dropdown">
                 <a class="nav-link" href="#pablo" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="material-icons">person</i>
@@ -80,10 +82,10 @@
                   </p>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
-                  <a class="dropdown-item" href="/victory/index.html">Go To Website</a>
-                  <a class="dropdown-item" href="/Login_v8/chgpsw.html">Change Password</a>
+                  <a class="dropdown-item" href="../../victory/index.html">Go To Website</a>
+                  <a class="dropdown-item" href="../../Login_v8/chgpsw.html">Change Password</a>
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item btn btn-danger active" href="/index">Log out</a>
+                  <a class="dropdown-item btn btn-danger active" href="../../Login_v8/index.html">Log out</a>
                 </div>
               </li>
             </ul>
@@ -101,100 +103,8 @@
                     <h4 class="card-title ">Student Table</h4>
                     <p class="card-category"></p>
                   </div>
-                  <div class="row">
-                    <div class="col-md-5" style="position: relative; left: 20px;">
-                      <select class="browser-default custom-select custom-select-md mb-6" id="myGrade" >
-                        <option selected>Select Class</option>
-                        <option value="Grade-6">Grade-6</option>
-                        <option value="Grade-7">Grade-7</option>
-                        <option value="Grade-8">Grade-8</option>
-                        <option value="Grade-9">Grade-9</option>
-                        <option value="Grade-10">Grade-10</option>
-                        <option value="Grade-11">Grade-11</option>
-                      </select>
-                    </div>
-                    <div class="col-md-5">
-                      <select class="browser-default custom-select custom-select-md mb-6" id="mySection" >
-                        <option selected>Select Section</option>
-                        <option value="all">All</option>
-                        <option value="a">Section A</option>
-                        <option value="b">Section B</option>
-                      </select>
-                    </div>
-                    <div class="col-md-1">
-                      <button class="btn btn-success" id="myselection" >Ok</button>
-                    </div>
-                  </div>
                   <div class="card-body">
-                    <div class="table-responsive">
-                      <form action="/studentlist" method="post">
-                      <table class="table">
-                        <thead class=" text-primary">
 
-
-                          <th>
-                            Name
-                          </th>
-                          <th>
-                            Email
-                          </th>
-                          <th>
-                            Profile
-                          </th>
-                          <th>
-                            Father Name
-                          </th>
-                          <th>
-                            Gender
-                          </th>
-                          <th>
-                            D.O.B
-                          </th>
-                          <th>
-                            Roll
-                          </th>
-                          <th>
-                            Class
-                          </th>
-
-                          <th>
-                            Phone no
-                          </th>
-                          <th>
-                            Address
-                          </th>
-                          <th>
-                            Action
-                          </th>
-
-                        </thead>
-                        <tbody>
-                          <% for (var i = 0; i < student.length; i++) {%>
-                            <tr colspan="8">
-
-                              <td><%= student[i].fullName%></td>
-                              <td><%= student[i].email%></td>
-                              <td> <img src=" <%= student[i].imgUrl%>" width="100px" height="70px" alt=""></td>
-                              <td><%= student[i].fatherName %></td>
-                              <td><%= student[i].gender %></td>
-                              <td><%= student[i].dateOfBirth %></td>
-                              <td><%= student[i].roll %></td>
-                              <td><%= student[i].class %></td>
-
-                              <td><%= student[i].phNumber %></td>
-                              <td><%= student[i].address %></td>
-                              <td style="font-size: 18px;">
-                                <a href="/admin/students/update/<%= student[i]._id %>"><i class="fa fa-pencil fa-lg" aria-hidden="true"  rel="tooltip" title="Edit"></i></a>
-                                &nbsp;&nbsp;&nbsp;<a href="/admin/students/delete/<%= student[i]._id %>" onclick="return confirm('Are you sure to delete this record ?');"><i class="fa fa-trash fa-lg" aria-hidden="true" style="color: red;"  rel="tooltip" title="Delete"></i></a>
-                              </td>
-
-                            </tr>
-
-                            <%}%>
-                        </tbody>
-                      </table>
-                    </form>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -206,7 +116,7 @@
       <script src="js/customjs.js"></script>
 
 
-      <!-- <div id="add" class="tab-pane fade">
+      <div id="add" class="tab-pane fade">
         <div class="row">
           <div class="col-md-12">
             <div class="panel panel-primary">
@@ -220,7 +130,57 @@
                   <table class="table">
                     <tr>
                       <!-- <td><label for="code" class="control-label"> Code  </label></td> -->
+                      <td><input type="text" id="code" class="form-control" placeholder="Code"></td>
+                    <!-- </tr>
 
+                      <tr > -->
+                        <!-- <td><label for="name" class="control-label"> Name  </label></td> -->
+                        <td><input type="text" id="name" class="form-control" placeholder="Name" required="required" ></td><br>
+                      </tr>
+
+                      <tr>
+                        <!-- <td><label for="email" class="control-label"> NRC </label></td> -->
+                        <td><input type="text" id="nrc" class="form-control" placeholder="NRC/Passport" required="required"></td>
+                    <!-- </tr>
+
+                      <tr> -->
+                        <!-- <td><label for="phone" class="control-label"> Phone  </label></td> -->
+                        <td><input type="text" id="phone" class="form-control" placeholder="Phone No." required="required"></td>
+                      </tr>
+
+                      <tr>
+                        <!-- <td><label for="email" class="control-label"> Email  </label></td> -->
+                        <td><input type="email" id="email" class="form-control" placeholder="Email" required="required"></td>
+                    <!-- </tr>
+
+                      <tr> -->
+                        <!-- <td><label for="city" class="control-label"> City  </label></td> -->
+                        <td><input type="text" id="city" class="form-control" placeholder="City"></td>
+                      </tr>
+
+                    <!-- <tr>
+                      <td><label for="country" class="control-label"> Country  </label></td>
+                      <td><input type="text" id="country" class="form-control"></td>
+                    </tr> -->
+
+                    <!-- <tr>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                    </tr> -->
+                    <tr>
+                      <td colspan="4"><center>
+                        <input type="submit" name="" class="btn btn-success " >
+                        <a href="#view" data-toggle="tab"><span class="btn btn-danger">Cancel</a></center>
+                        </td>
+
+                      </tr>
+                    </table>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
         <div id="edit" class="tab-pane fade">
           <div class="row">
@@ -290,7 +250,7 @@
       </div>
 
 
-      <!-- <footer class="footer">
+      <footer class="footer">
         <div class="container-fluid">
           <nav class="float-left">
             <ul>
@@ -325,7 +285,7 @@
           </div>
         </div>
       </footer>
-    </div> --> -->
+    </div>
   </div>
 
 
@@ -351,7 +311,7 @@
   <!--  Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
   <script src="/assets/js/plugins/bootstrap-selectpicker.js"></script>
   <!--  Plugin for the DateTimePicker, full documentation here: https://eonasdan.github.io/bootstrap-datetimepicker/ -->
-  <script src="../assets/js/plugins/bootstrap-datetimepicker.min.js"></script>
+  <script src="/assets/js/plugins/bootstrap-datetimepicker.min.js"></script>
   <!--  DataTables.net Plugin, full documentation here: https://datatables.net/  -->
   <script src="/assets/js/plugins/jquery.dataTables.min.js"></script>
   <!--  Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs  -->
