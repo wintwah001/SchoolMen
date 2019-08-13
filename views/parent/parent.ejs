@@ -100,11 +100,60 @@
               <div class="card">
                 <div id="view">
                   <div class="card-header card-header-success">
-                    <h4 class="card-title ">Student Table</h4>
+                    <h4 class="card-title ">Parent Table</h4>
                     <p class="card-category"></p>
                   </div>
                   <div class="card-body">
+                    <table class="table">
+                      <thead class=" text-primary">
+                        <th>
+                          Name
+                        </th>
+                        <th>
+                          Email
+                        </th>
+                        <th>
+                          Password
+                        </th>
+                        <th>
+                          Address
+                        </th>
+                        <th>
+                          Phone
+                        </th>
+                        <th>
+                          Student Name
+                        </th>
+                        <th>
+                          Class
+                        </th>
 
+                        <th>
+                          Action
+                        </th>
+
+                      </thead>
+                      <tbody>
+                        <% for (var i = 0; i < parents.length; i++) {%>
+                          <tr colspan="8">
+
+                            <td><%= parents[i].name%></td>
+                            <td><%= parents[i].email%></td>
+                            <td><%= parents[i].password%> </td>
+                            <td><%= parents[i].address%></td>
+                            <td><%= parents[i].phone%></td>
+                            <td><%= parents[i].student_id.fullName%></td>
+                            <td><%= parents[i].student_id.class%></td>
+                            <td style="font-size: 18px;">
+                              <a href="/admin/parents/update/<%= parents[i]._id %>"><i class="fa fa-pencil fa-lg" aria-hidden="true"  rel="tooltip" title="Edit"></i></a>
+                              &nbsp;&nbsp;&nbsp;<a href="/admin/parents/delete/<%= parents[i]._id %>" onclick="return confirm('Are you sure to delete this record ?');"><i class="fa fa-trash fa-lg" aria-hidden="true" style="color: red;"  rel="tooltip" title="Delete"></i></a>
+                            </td>
+
+                          </tr>
+
+                          <%}%>
+                      </tbody>
+                    </table>
                   </div>
                 </div>
               </div>

@@ -54,4 +54,14 @@ var Schema = mongoose.Schema;
 
 });
 
+StudentSchema.virtual('id').get(function(){
+    return this._id.toHexString();
+});
+
+// Ensure virtual fields are serialised.
+StudentSchema.set('toJSON', {
+    virtuals: true
+});
+
+
 module.exports =  mongoose.model('Student', StudentSchema);

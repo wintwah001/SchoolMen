@@ -7,7 +7,7 @@
   <link rel="icon" type="image/png" href="/assets/img/favicon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    Add Staff
+    Add Parent
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
@@ -97,73 +97,57 @@
             <div class="col-md-10">
               <div class="card">
                 <div class="card-header card-header-success">
-                  <h4 class="card-title">Add Satff</h4>
+                  <h4 class="card-title">Add Parent</h4>
                   <p class="card-category"></p>
 
                 </div>
                 <div class="card-body">
-                  <form action="/admin/staffs/staffadd" method="post">
+                  <form action="/admin/parents/add" method="post">
                     <div class="row">
-
-                      <div class="col-md-5">
+                      <div class="col-md-6">
                         <div class="form-group">
                           <label class="bmd-label-floating">Name</label>
                           <input type="text" class="form-control" required="" name="name">
                         </div>
                       </div>
-                      <div class="col-md-5">
+                      <div class="col-md-6">
                         <div class="form-group">
                           <label class="bmd-label-floating">Email</label>
                           <input type="email" class="form-control" required="" name="email">
                         </div>
                       </div>
-                      <div class="col-md-5">
+                      <div class="col-md-6">
                         <div class="form-group">
                           <label class="bmd-label-floating">Password</label>
-                          <input type="password" class="form-control" required="" name="pwd">
-                        </div>
-                      </div>
-                      <div class="col-md-5">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Gender</label>
-                          <input type="text" class="form-control" required="" name="gender">
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">NRC</label>
-                          <input type="text" class="form-control" required="" name="NRC">
+                          <input type="password" class="form-control" required="" name="password">
                         </div>
                       </div>
                       <div class="col-md-6">
-                        <div class="form-group">
-                          <label class="bmd-label-floating"></label>
-                          <input type="date" class="form-control" required="" name="dob"  min="1900-01-01" max="2019-01-01">
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Duty</label>
-                          <input type="text" class="form-control" required="" name="duty">
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Position</label>
-                          <input type="text" class="form-control" required="" name="position">
-                        </div>
-                      </div>
-                      <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">Phone Number</label>
-                          <input type="text" class="form-control" required="" name="phno">
+                          <input type="text" class="form-control" required="" name="phone">
                         </div>
                       </div>
                     </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Class</label>
+                          <select class="form-control" id="class" name="class" >
+
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Student</label>
+                          <select class="form-control" id="fullName" name="fullName" >
+
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+
                     <div class="row">
                       <div class="col-md-12">
                         <div class="form-group">
@@ -172,18 +156,8 @@
                         </div>
                       </div>
                     </div>
-                    <div class="row">
-                      <div class="col-md-12">
-                        <div class="form-group">
-                          <label>About Me</label>
-                          <div class="form-group">
-                            <label class="bmd-label-floating">Description</label>
-                            <textarea class="form-control" rows="3"></textarea>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <button type="submit" class="btn btn-danger pull-right">Cancel</button>
+
+                    <button type="reset" class="btn btn-danger pull-right">Cancel</button>
                     <button type="submit" class="btn btn-success pull-right">Submit</button>
                     <div class="clearfix"></div>
                   </form>
@@ -422,6 +396,25 @@
   <script src="/assets/demo/demo.js"></script>
   <script>
     $(document).ready(function() {
+
+      var student = [<%- stu %>];
+      addOptions('class', student);
+      $("#class").on('change', function(){
+          var stu = $.grep( student, function( n, i ) {
+            return n.class == $("#class").val();
+          });
+          addOptions('fullName', stu);
+      });
+      function addOptions(id, arr){
+          $("#"+id).children().remove();
+          for(var idx in arr){
+              if(idx == 0) $("#"+id).append(new Option('Select '+((id == 'class')? "Class": "Student"), ''));
+              if(idx == 0 || ((id == 'class')? arr[idx][id].fullName != arr[idx-1][id].fullName : arr[idx][id] != arr[idx-1][id])){
+                  $("#"+id).append(new Option(((id == 'teacher_id')? arr[idx][id].fullName:arr[idx][id]),((id == 'class')? arr[idx][id].fullName:arr[idx][id])));
+              }
+          }
+      }
+
       $().ready(function() {
         $sidebar = $('.sidebar');
 

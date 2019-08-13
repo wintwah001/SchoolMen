@@ -5,6 +5,7 @@ var Student= require('../model/Student');
 var Staff= require('../model/Staff');
 var Subject=require('../model/Subject');
 var Admin = require('../model/Admin');
+var Parent = require('../model/Parent');
 // var student = require('./students');
 // var teacher = require('./teachers');
 // var timetable = require('./timetables');
@@ -35,6 +36,17 @@ router.post('/admin', function (req, res) {
 
 router.get('/parent', function(req, res) {
   res.render('plogin')
+});
+
+router.post('/parent', function(req, res) {
+  Parent.findOne({email: req.body.email},(err,rtn)=>{
+    if(err) throw err;
+    if(rtn != null && rtn.password == req.body.password){
+      res.redirect('/home')
+    }else {
+      res.redirect('/parent')
+    }
+  })
 });
 
 router.get('/staff', function(req, res) {
