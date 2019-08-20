@@ -8,6 +8,10 @@ router.get('/teacheradd',(req,res)=>{
   res.render("teacher/addteacher")
 });
 
+router.get('/home',(req,res)=>{
+  res.render("teacher/home")
+});
+
 router.post('/teacheradd',(req,res)=>{
 var teacher=new Teacher();
 teacher.fullName = req.body.fullName;

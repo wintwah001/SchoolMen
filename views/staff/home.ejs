@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="/assets/img/favicon.png">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>
+    Admin Dashboard
+  </title>
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+  <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  <!-- CSS Files -->
+  <link href="/assets/css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
+  <!-- CSS Just for demo purpose, don't include it in your project -->
+  <link href="/assets/demo/demo.css" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="/assets/style.css">
+  <link rel="stylesheet" href="../style.css">
+
+  <script>
+    window.onload = function () {
+
+      var chart = new CanvasJS.Chart("examresult", {
+        theme:"light2",
+        animationEnabled: true,
+        title:{
+          text: "Exam Result Of Our School"
+        },
+        axisY :{
+          includeZero: false,
+          title: "Percentage of Success Student",
+          suffix: "%"
+        },
+        toolTip: {
+          shared: "true"
+        },
+        legend:{
+          cursor:"pointer",
+          itemclick : toggleDataSeries
+        },
+        data: [{
+          type: "spline",
+          visible: true,
+          showInLegend: true,
+          yValueFormatString: "##.00%",
+          name: "Grade 6",
+          dataPoints: [
+          { label: "2010", y: 61.22 },
+          { label: "2011", y: 65.20 },
+          { label: "2012", y: 63.44 },
+          { label: "2013", y: 67.45 },
+          { label: "2014", y: 63.58 },
+          { label: "2015", y: 68.44 },
+          { label: "2016", y: 67.40 },
+          { label: "2017", y: 63.72 },
+          { label: "2018", y: 60.66 },
+          { label: "2019", y: 68.04 }
+          ]
+        },
+        {
+          type: "spline",
+          showInLegend: true,
+          visible: true,
+          yValueFormatString: "##.00%",
+          name: "Grade 7",
+          dataPoints: [
+          { label: "2010", y: 75.86 },
+          { label: "2011", y: 71.76 },
+          { label: "2012", y: 77.77 },
+          { label: "2013", y: 72.65 },
+          { label: "2014", y: 79.90 },
+          { label: "2015", y: 73.88 },
+          { label: "2016", y: 77.69 },
+          { label: "2017", y: 74.86 },
+          { label: "2018", y: 78.38 },
+          { label: "2019", y: 80.20 }
+          ]
+        },
+        {
+          type: "spline",
+          visible: true,
+          showInLegend: true,
+          yValueFormatString: "##.00%",
+          name: "Grade 8",
+          dataPoints: [
+          { label: "2010", y: 85.37 },
+          { label: "2011", y: 82.27 },
+          { label: "2012", y: 88.72 },
+          { label: "2013", y: 80.87 },
+          { label: "2014", y: 90.35 },
+          { label: "2015", y: 82.50 },
+          { label: "2016", y: 86.84 },
+          { label: "2017", y: 80.13 },
+          { label: "2018", y: 91.22 },
+          { label: "2019", y: 90.39 }
+          ]
+        },
+        {
+          type: "spline",
+          showInLegend: true,
+          yValueFormatString: "##.00%",
+          name: "Grade 9",
+          dataPoints: [
+          { label: "2010", y: 70.64 },
+          { label: "2011", y: 71.31 },
+          { label: "2012", y: 70.59 },
+          { label: "2013", y: 75.95 },
+          { label: "2014", y: 73.16 },
+          { label: "2015", y: 84.40 },
+          { label: "2016", y: 73.20 },
+          { label: "2017", y: 77.17 },
+          { label: "2018", y: 74.95 },
+          { label: "2019", y: 70.09 }
+          ]
+        },
+        {
+          type: "spline",
+          showInLegend: true,
+          yValueFormatString: "##.00%",
+          name: "Grade 10",
+          dataPoints: [
+          { label: "2010", y: 80 },
+          { label: "2011", y: 86.81 },
+          { label: "2012", y: 82.71 },
+          { label: "2013", y: 76.82 },
+          { label: "2014", y: 83.56 },
+          { label: "2015", y: 70.24 },
+          { label: "2016", y: 79.40 },
+          { label: "2017", y: 85.01 },
+          { label: "2018", y: 83.14 },
+          { label: "2019", y: 87.11 }
+          ]
+        },
+        ]
+      });
+      chart.render();
+
+      function toggleDataSeries(e) {
+        if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible ){
+          e.dataSeries.visible = false;
+        } else {
+          e.dataSeries.visible = true;
+        }
+        chart.render();
+      }
+
+    }
+  </script>
+
+</head>
+
+<body class="">
+  <div class="wrapper ">
+    <div class="sidebar" data-color="green" data-background-color="white" data-image="/assets/img/sidebar-1.jpg">
+      <!--
+        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+
+        Tip 2: you can also add an image using data-image tag
+      -->
+      <div class="logo">
+        <a href="/victory" class="simple-text logo-normal">
+         <img src="/assets/img/galaxy.png" alt="" style="width: 90px; height: 50px;">Galaxy
+       </a>
+     </div>
+     <div class="sidebar-wrapper">
+      <ul class="nav">
+        <li class="nav-item active  ">
+          <a class="nav-link" href="/shome">
+            <i class="material-icons">account_balance</i>
+            <p>Home</p>
+          </a>
+        </li>
+        <li class="nav-item  ">
+          <a class="nav-link" href="/sstudent">
+            <i class="material-icons">group_add</i>
+            <p>Student</p>
+          </a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="/steacher">
+            <i class="material-icons">person_add</i>
+            <p>Teacher</p>
+          </a>
+        </li>
+
+        <li class="nav-item ">
+          <a class="nav-link" href="/sexamresult">
+            <i class="material-icons">notifications</i>
+            <p>Exam Result</p>
+          </a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="/stimetable">
+            <i class="material-icons">list_alt</i>
+            <p>Time Table</p>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="main-panel">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+      <div class="container-fluid">
+        <div class="navbar-wrapper">
+          <a class="navbar-brand" href="#pablo"></a>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="navbar-toggler-icon icon-bar"></span>
+          <span class="navbar-toggler-icon icon-bar"></span>
+          <span class="navbar-toggler-icon icon-bar"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end">
+
+            <ul class="navbar-nav">
+
+              <li class="nav-item dropdown">
+                <a class="nav-link" href="#pablo" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="material-icons" style="font-size: 35px;">person</i>
+                  <p class="d-lg-none d-md-block">
+                    Account
+                  </p>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
+
+                  <a class="dropdown-item" href="/victory" >Go To Website</a>
+                  <a class="dropdown-item" href="/chgpsw">Change Password</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item btn btn-danger active" href="/index">Log out</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <br><br><br>
+                 <div class="container">
+                  <div class="row">
+                    <div class="col-md-12" align="center">
+                      <div id="examresult" style="height: 300px; width: 100%;"></div>
+                    </div>
+                  </div>
+                </div>
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-lg-4 col-md-6 col-sm-6">
+                          <div class="card card-stats">
+                            <div class="card-header card-header-success card-header-icon">
+                              <div class="card-icon">
+                                <i class="material-icons">people</i>
+                              </div>
+                              <p class="card-category">Total Student</p>
+                              <h3 class="card-title">18432
+                                <small>students</small>
+                              </h3>
+                            </div>
+                            <div class="card-footer">
+                              <div class="stats">
+                                Total Student Of Our School
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6">
+                          <div class="card card-stats">
+                            <div class="card-header card-header-primary card-header-icon">
+                              <div class="card-icon">
+                                <i class="material-icons">school</i>
+                              </div>
+                              <p class="card-category">Total Teacher</p>
+                              <h3 class="card-title">5000
+                                <small>teachers</small></h3>
+                              </div>
+                              <div class="card-footer">
+                                <div class="stats">
+
+                                  Total Teacher Of Our School
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-lg-4 col-md-6 col-sm-6">
+                            <div class="card card-stats">
+                              <div class="card-header card-header-warning card-header-icon">
+                                <div class="card-icon">
+                                  <i class="material-icons">directions_walk</i>
+                                </div>
+                                <p class="card-category">Total Staff</p>
+                                <h3 class="card-title">2000
+                                  <small>staffs</small></h3>
+                                </div>
+                                <div class="card-footer">
+                                  <div class="stats">
+
+                                    Total Staff Of Our School
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                          </div>
+
+                        </div>
+
+                        <!--   Core JS Files   -->
+                        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+                        <script src="/assets/js/core/jquery.min.js"></script>
+                        <script src="/assets/js/core/popper.min.js"></script>
+                        <script src="/assets/js/core/bootstrap-material-design.min.js"></script>
+                        <script src="/assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+                        <!-- Plugin for the momentJs  -->
+                        <script src="/assets/js/plugins/moment.min.js"></script>
+                        <!--  Plugin for Sweet Alert -->
+                        <script src="/assets/js/plugins/sweetalert2.js"></script>
+                        <!-- Forms Validations Plugin -->
+                        <script src="/assets/js/plugins/jquery.validate.min.js"></script>
+                        <!-- Plugin for the Wizard, full documentation here: https://github.com/VinceG/twitter-bootstrap-wizard -->
+                        <script src="/assets/js/plugins/jquery.bootstrap-wizard.js"></script>
+                        <!--	Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
+                        <script src="/assets/js/plugins/bootstrap-selectpicker.js"></script>
+                        <!--  Plugin for the DateTimePicker, full documentation here: https://eonasdan.github.io/bootstrap-datetimepicker/ -->
+                        <script src="/assets/js/plugins/bootstrap-datetimepicker.min.js"></script>
+                        <!--  DataTables.net Plugin, full documentation here: https://datatables.net/  -->
+                        <script src="/assets/js/plugins/jquery.dataTables.min.js"></script>
+                        <!--	Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs  -->
+                        <script src="/assets/js/plugins/bootstrap-tagsinput.js"></script>
+                        <!-- Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
+                        <script src="/assets/js/plugins/jasny-bootstrap.min.js"></script>
+                        <!--  Full Calendar Plugin, full documentation here: https://github.com/fullcalendar/fullcalendar    -->
+                        <script src="/assets/js/plugins/fullcalendar.min.js"></script>
+                        <!-- Vector Map plugin, full documentation here: http://jvectormap.com/documentation/ -->
+                        <script src="/assets/js/plugins/jquery-jvectormap.js"></script>
+                        <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+                        <script src="/assets/js/plugins/nouislider.min.js"></script>
+                        <!-- Include a polyfill for ES6 Promises (optional) for IE11, UC Browser and Android browser support SweetAlert -->
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
+                        <!-- Library for adding dinamically elements -->
+                        <script src="/assets/js/plugins/arrive.min.js"></script>
+                        <!--  Google Maps Plugin    -->
+                        <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+                        <!-- Chartist JS -->
+                        <script src="/assets/js/plugins/chartist.min.js"></script>
+                        <!--  Notifications Plugin    -->
+                        <script src="/assets/js/plugins/bootstrap-notify.js"></script>
+                        <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+                        <script src="/assets/js/material-dashboard.js?v=2.1.1" type="text/javascript"></script>
+                        <!-- Material Dashboard DEMO methods, don't include it in your project! -->
+                        <script src="/assets/demo/demo.js"></script>
+  <script>
+    $(document).ready(function() {
+      // Javascript method's body can be found in assets/js/demos.js
+      md.initDashboardPageCharts();
+
+    });
+  </script>
+</body>
+
+</html>

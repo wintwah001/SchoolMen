@@ -27,6 +27,7 @@ router.post('/admin', function (req, res) {
   Admin.findOne({email:req.body.email},(err,rtn)=>{
     if(err) throw err;
     if(rtn != null && rtn.password == req.body.password){
+      req.session.users = {email: rtn.email, name: rtn.name, roll: "admin", id:rtn._id};
       res.redirect('/home');
     }else {
       res.redirect('/admin');
@@ -42,6 +43,7 @@ router.post('/parent', function(req, res) {
   Parent.findOne({email: req.body.email},(err,rtn)=>{
     if(err) throw err;
     if(rtn != null && rtn.password == req.body.password){
+      req.session.users = {email: rtn.email, name: rtn.name, roll: "parent", id:rtn._id};
       res.redirect('/home')
     }else {
       res.redirect('/parent')
@@ -59,7 +61,8 @@ router.post('/staff', function(req, res) {
     console.log(rtn);
     if(err) throw err;
     if(rtn != null & rtn.password == req.body.password){
-      res.redirect('/home')
+      req.session.users = {email: rtn.email, name: rtn.fullName, roll: "staff", id:rtn._id};
+      res.redirect('/admin/staffs/home');
     }else {
       res.redirect('/');
     }
@@ -75,7 +78,8 @@ router.post('/teacher', function (req,res) {
   Teacher.findOne({email:req.body.email},(err,rtn)=>{
     if(err) throw err;
     if(rtn != null && req.body.password == rtn.password){
-      res.redirect('/home')
+      req.session.users = {email: rtn.email, name: rtn.fullName, roll: "teacher", id:rtn._id};
+      res.redirect('/teachers/home')
     }else {
       res.redirect('/teacher');
     }

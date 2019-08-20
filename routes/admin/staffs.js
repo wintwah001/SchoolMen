@@ -9,6 +9,10 @@ router.get('/staffadd',(req,res)=>{
   res.render("staff/addstaff")
 });
 
+router.get('/home',(req,res)=>{
+  res.render("staff/home")
+});
+
 router.post('/staffadd',(req,res)=>{
 var staff=new Staff();
 staff.fullName = req.body.name;
