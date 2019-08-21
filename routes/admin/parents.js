@@ -6,6 +6,7 @@ var Parent = require('../../model/Parent');
 router.get('/list',function (req,res) {
   Parent.find({}).populate('student_id').exec((err,rtn)=>{
     if(err) throw err;
+    console.log(rtn);
     res.render('parent/parent',{parents: rtn});
   })
 

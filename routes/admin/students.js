@@ -48,10 +48,11 @@ router.get('/update/:id', function (req,res) {
   })
 })
 
-router.post('/update', function(req,res,next){
+router.post('/update',upload.single('photo'), function(req,res,next){
   console.log('call');
   var update={
-    fullname : req.body.sname,
+    _id : req.body.id,
+    fullName : req.body.sname,
     email : req.body.semail,
     password : req.body.pwd,
     fatherName : req.body.fathername,
@@ -62,10 +63,11 @@ router.post('/update', function(req,res,next){
     phNumber : req.body.phno,
     address : req.body.address
  }
+  if(req.file) update.imgUrl = '/images/uploads/'+ req.file.filename;
     Student.findByIdAndUpdate(req.body.id,{$set: update},function(err,rtn){
     if(err) throw err;
   console.log(rtn);
-  res.redirect('/admin/students/studentlist/'+rtn._id);
+  res.redirect('/admin/students/studentlist');
   });
 });
 
