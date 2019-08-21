@@ -23,7 +23,7 @@ router.get('/timetable',(req,res)=>{
 
 router.get('/attendance',(req,res)=>{
   var d = new Date();
-  var dNow = (d.getDay()+2).toString();
+  var dNow = (d.getDay()).toString();
   console.log(dNow);
   Timetable.find({$and:[{teacherName:req.session.users.name},{day:dNow}]},(err,rtn)=>{
     if(err) throw err;
