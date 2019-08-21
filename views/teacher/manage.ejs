@@ -17,7 +17,8 @@
   <link href="/assets/css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="/assets/demo/demo.css" rel="stylesheet" />
-  <script src="../my_js.js"></script>
+  <!-- <script src="../my_js.js"></script> -->
+  <script src="/assets/js/core/jquery.min.js"></script>
 
 </head>
 
@@ -85,65 +86,105 @@
       <div class="content">
         <div class="container-fluid">
           <div class="row">
-            <div class="col-md-12">
-              <div class="card">
-                <div id="view">
-                  <div class="card-header card-header-success">
-                    <h4 class="card-title ">Add Attendance</h4>
-                    <p class="card-category"></p>
-                  </div><br>
-
-                    <div class="row">
-                      <div class="col-md-3" style="position:relative; right:-20px;">
-                        <button class="btn">&#9744; Make As Holiday</button>
-                      </div>
-                    </div>
-                  <div class="card-body">
-                    <div class="table-responsive">
-                      <table class="table">
-                        <thead class=" text-primary">
-                          <th>RollNo</th>
-                          <th>Name</th>
-                          <th>Class</th>
-                          <th>Attendance</th>
-                        </thead>
-                        <tbody>
-                          <% for(var i = 0; i< stu.length; i++){%>
-                            <tr>
-                              <td><%= stu[i].roll %></td>
-                              <td><%= stu[i].fullName %></td>
-                              <td>Grade <%= stu[i].class %></td>
-                              <td>
-                                <label class="switch">
-                                  <input type="checkbox" name="action" onchange="Atten('<%= stu[i]._id %>')">
-                                  <div class="slider round" style="color: white; font-size:15px;">
-                                    &nbsp;&nbsp;P&nbsp;&nbsp;&nbsp;&nbsp;A
-                                  </div>
-                                </label>
-                              </td>
-                            </tr>
+              <div class="col-sm-12 col-sm-offset-1">
+                  <!-- Introduction -->
+                  <h2 class="h2 m-t-lg m-b"> <strong>Grade <%= cla.toUpperCase() %></strong>  Attendance List</h2>
+                  <h2 class="h3 m-t-lg m-b"><%= subj %></h2>
+                  <!-- Classic table -->
+                  <div class="col-lg-12 col-lg-1">
+                    <table id="example" class="cell-border" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>RollNo</th>
+                            <th>Student Name</th>
+                            <th>December</th>
+                            <th>January</th>
+                            <th>February</th>
+                            <th>March</th>
+                            <th>June</th>
+                            <th>July</th>
+                            <th>Auguest</th>
+                            <th>September</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      <% for(var i = 0; i< stu.length; i++){ var m1=0,m2=0,m3=0,m4=0,m5=0,m6=0,m7=0,m8=0,c1=0,c2=0,c3=0,c4=0,c5=0,c6=0,c7=0,c8 = 0;%>
+                        <% for(var j = 0; j< data.length; j++){%>
+                          <% if(data[j].student_id.equals(stu[i]._id)){%>
+                            <% if(data[j].month == "0"){%>
+                              <% m1 += data[j].attendance_count; c1 += data[j].total_count;%>
+                            <%} else if(data[j].month == "1"){%>
+                              <% m2 += data[j].attendance_count; c2 += data[j].total_count;%>
+                            <%} else if(data[j].month == "2"){%>
+                                <% m3 += data[j].attendance_count; c3 += data[j].total_count;%>
+                            <%} else if(data[j].month == "5"){%>
+                                <% m4 += data[j].attendance_count; c4 += data[j].total_count;%>
+                            <%} else if(data[j].month == "6"){%>
+                                <% m5 += data[j].attendance_count; c5 += data[j].total_count;%>
+                            <%} else if(data[j].month == "7"){%>
+                                <% m6 += data[j].attendance_count; c6 += data[j].total_count;%>
+                            <%} else if(data[j].month == "8"){%>
+                                <% m7 += data[j].attendance_count; c7 += data[j].total_count;%>
+                            <%} else if(data[j].month == "11"){%>
+                              <% m8 += data[j].attendance_count; c8 += data[j].total_count;%>
+                            <%} else{%>
+                            <%}%>
+                            <%}%>
                           <%}%>
-                        </tbody>
-                      </table>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-3" style="position:relative; right:-20px;">
-                        <button class="btn btn-primary" onclick="calling();">&#9744; Add Attendance</button>
-                      </div>
-                    </div>
+                      <tr>
+                            <td><%= stu[i].roll%></td>
+                            <td><%= stu[i].fullName %></td>
+                            <td><%= (c8 != 0)? Math.floor((m8/c8)*100): 0 %> %</td>
+                            <td><%= (c1 != 0)? Math.floor((m1/c1)*100): 0 %> %</td>
+                            <td><%= (c2 != 0)? Math.floor((m2/c2)*100): 0 %> %</td>
+                            <td><%= (c3 != 0)? Math.floor((m3/c3)*100): 0 %> %</td>
+                            <td><%= (c4 != 0)? Math.floor((m4/c4)*100): 0 %> %</td>
+                            <td><%= (c5 != 0)? Math.floor((m5/c5)*100): 0 %> %</td>
+                            <td><%= (c6 != 0)? Math.floor((m6/c6)*100): 0 %> %</td>
+                            <td><%= (c7 != 0)? Math.floor((m7/c7)*100): 0 %> %</td>
+                            <td><%=  Math.floor(((m8+m2+m3+m4+m5+m6+m7+m1)/(c8+c1+c3+c4+c5+c6+c7+c2))*100) %> %</td>
+
+                      </tr>
+                    <%}%>
+                    </tbody>
+                    <tfoot>
+                      <tr>
+                          <th>RollNo</th>
+                          <th>Student Name</th>
+                          <th>December</th>
+                          <th>January</th>
+                          <th>February</th>
+                          <th>March</th>
+                          <th>June</th>
+                          <th>July</th>
+                          <th>Auguest</th>
+                          <th>September</th>
+                          <th>Total</th>
+                      </tr>
+                    </tfoot>
+                </table>
+
                   </div>
-                </div>
+                  <!-- .card -->
+                  <!-- End Classic table -->
+                  <!-- End Introduction -->
+
+
+
+                  <!-- Payments -->
+
               </div>
-            </div>
+          </div>
           </div>
         </div>
       </div>
 
-      <script src="js/customjs.js"></script>
+      <!-- <script src="/js/customjs.js"></script> -->
     </div>
   </div>
   <!--   Core JS Files   -->
-  <script src="/assets/js/core/jquery.min.js"></script>
+
   <script src="/assets/js/core/popper.min.js"></script>
   <script src="/assets/js/core/bootstrap-material-design.min.js"></script>
   <script src="/assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
@@ -185,35 +226,5 @@
   <script src="/assets/js/material-dashboard.js?v=2.1.1" type="text/javascript"></script>
   <!-- Material Dashboard DEMO methods, don't include it in your project! -->
   <script src="/assets/demo/demo.js"></script>
-  <script type="text/javascript">
-    var students =[];
-    function Atten(id) {
-      console.log(typeof id);
-      var index = students.indexOf(id);
-      console.log(index);
-      if(index > -1){
-        students.splice(index, 1)
-      }else {
-        students.push(id)
-      }
-      console.log(students);
-    }
-    function calling() {
-      console.log(typeof students, students);
-      var record = {students: JSON.stringify(students),stuclass: '<%= stu[0].class %>', sub : '<%= subj %>'};
-      $.ajax({
-          "url": "/teachers/calling",
-          "type": "POST",
-          "data" : record,
-          "dataType" : "json",
-          success: function (result) {
-            if (result.status) {
-              alert("Successfully Called!!");
-              location.href = "/teachers/home";
-            }
-          }
-      })
-    }
-  </script>
 </body>
 </html>

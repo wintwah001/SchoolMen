@@ -7,7 +7,7 @@
   <link rel="icon" type="image/png" href="/assets/img/favicon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    Teacher
+    Parent
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
@@ -85,63 +85,77 @@
       <div class="content">
         <div class="container-fluid">
           <div class="row">
-            <div class="col-md-12">
+            <div class="col-sm-11 col-sm-offset-1">
+              <!-- Introduction -->
+              <h2 class="h3 m-t-lg m-b">My Children's Attendance</h2>
+              <!-- Classic table -->
+              <h2 class="section-title"><%= name %></h2>
               <div class="card">
-                <div id="view">
-                  <div class="card-header card-header-success">
-                    <h4 class="card-title ">Add Attendance</h4>
-                    <p class="card-category"></p>
-                  </div><br>
+                <div class="table-responsive">
+                  <table class="table table-borderless table-header-bg text-center m-b-0">
+                    <thead>
+                      <tr>
+                        <th class="w-15"></th>
+                        <th class="text-center">December</th>
+                        <th class="text-center">January</th>
+                        <th class="text-center">February</th>
+                        <th class="text-center">March</th>
+                        <th class="text-center">June</th>
+                        <th class="text-center">July</th>
+                        <th class="text-center">Auguest</th>
+                        <th class="text-center">September</th>
+                        <th class="text-center">Total</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <% for(var i = 0; i< subj.length; i++){%>
+                          <tr>
+                            <td class="font-500 text-left"><%=subj[i]%></td>
+                            <td id="<%=i%>11">0%</td>
+                            <td id="<%=i%>0">0%</td>
+                            <td id="<%=i%>1">0%</td>
+                            <td id="<%=i%>2">0%</td>
+                            <td id="<%=i%>5">0%</td>
+                            <td id="<%=i%>6">0%</td>
+                            <td id="<%=i%>7">0%</td>
+                            <td id="<%=i%>8">0%</td>
+                            <td id="<%=i%>t">0%</td>
+                    </tr>
+                  <%}%>
 
-                    <div class="row">
-                      <div class="col-md-3" style="position:relative; right:-20px;">
-                        <button class="btn">&#9744; Make As Holiday</button>
-                      </div>
-                    </div>
-                  <div class="card-body">
-                    <div class="table-responsive">
-                      <table class="table">
-                        <thead class=" text-primary">
-                          <th>RollNo</th>
-                          <th>Name</th>
-                          <th>Class</th>
-                          <th>Attendance</th>
-                        </thead>
-                        <tbody>
-                          <% for(var i = 0; i< stu.length; i++){%>
-                            <tr>
-                              <td><%= stu[i].roll %></td>
-                              <td><%= stu[i].fullName %></td>
-                              <td>Grade <%= stu[i].class %></td>
-                              <td>
-                                <label class="switch">
-                                  <input type="checkbox" name="action" onchange="Atten('<%= stu[i]._id %>')">
-                                  <div class="slider round" style="color: white; font-size:15px;">
-                                    &nbsp;&nbsp;P&nbsp;&nbsp;&nbsp;&nbsp;A
-                                  </div>
-                                </label>
-                              </td>
-                            </tr>
-                          <%}%>
-                        </tbody>
-                      </table>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-3" style="position:relative; right:-20px;">
-                        <button class="btn btn-primary" onclick="calling();">&#9744; Add Attendance</button>
-                      </div>
-                    </div>
-                  </div>
+
+
+                    </tbody>
+                  </table>
                 </div>
+                <!-- .card-block -->
               </div>
+              <!-- .card -->
+              <!-- End Classic table -->
+              <!-- End Introduction -->
+
+
+
+              <!-- Payments -->
+
             </div>
+          </div>
+
           </div>
         </div>
       </div>
 
       <script src="js/customjs.js"></script>
     </div>
-  </div>
   <!--   Core JS Files   -->
   <script src="/assets/js/core/jquery.min.js"></script>
   <script src="/assets/js/core/popper.min.js"></script>
@@ -185,35 +199,27 @@
   <script src="/assets/js/material-dashboard.js?v=2.1.1" type="text/javascript"></script>
   <!-- Material Dashboard DEMO methods, don't include it in your project! -->
   <script src="/assets/demo/demo.js"></script>
-  <script type="text/javascript">
-    var students =[];
-    function Atten(id) {
-      console.log(typeof id);
-      var index = students.indexOf(id);
-      console.log(index);
-      if(index > -1){
-        students.splice(index, 1)
-      }else {
-        students.push(id)
-      }
-      console.log(students);
-    }
-    function calling() {
-      console.log(typeof students, students);
-      var record = {students: JSON.stringify(students),stuclass: '<%= stu[0].class %>', sub : '<%= subj %>'};
-      $.ajax({
-          "url": "/teachers/calling",
-          "type": "POST",
-          "data" : record,
-          "dataType" : "json",
-          success: function (result) {
-            if (result.status) {
-              alert("Successfully Called!!");
-              location.href = "/teachers/home";
-            }
-          }
-      })
-    }
-  </script>
 </body>
+<script type="text/javascript">
+  <% for(var k =0; k< subj.length; k++){%>
+    var tc<%=k%> = 0; var tt<%=k%> =0;
+  <%}%>
+  <% for(var i = 0; i< data.length; i++){%>
+    var per = Math.floor((<%= data[i].count%>/<%= data[i].tolC%>)*100);
+      switch ('<%= data[i]._id.sub%>') {
+        <% for(var j= 0; j < subj.length; j++){%>
+          case '<%=subj[j]%>':
+              $('#<%=j%><%=data[i]._id.month%>').html(per+'%');
+              tc<%=j%> += per;
+              tt<%=j%> ++;
+            break;
+        <%}%>
+        default:
+
+      }
+  <%}%>
+  <% for(var y= 0; y < subj.length; y++){%>
+    $('#<%=y%>t').html(((isNaN(tc<%=y%>/tt<%=y%>) )? 0 : Math.floor(tc<%=y%>/tt<%=y%> ))+'%')
+  <%}%>
+</script>
 </html>

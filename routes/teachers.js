@@ -64,4 +64,30 @@ router.post('/calling', function(req, res, next) {
 
 });
 
+router.get('/manageAtt', function(req, res, next) {
+  Timetable.aggregate([
+    {$match:{teacherName: req.session.users.name}},
+    {$group:{_id:'$class', subj:{$push: "$subname"}}}
+    ],function (err,rtn) {
+    if(err) throw err;
+    var data = {};
+    for (var i = 0; i < rtn.length; i++) {
+      rtn[i].subj = _.uniq(rtn[i].subj);
+    }
+    console.log(rtn);
+    res.render('teacher/manage-att', { title: 'Express', sub: rtn});
+  })
+
+});
+router.get('/manage/:id/:sub', function(req, res, next) {
+  console.log(req.params.sub,req.session.users.id);
+  Attendance.find({$and:[{subjectName:req.params.sub},{teacher_id:req.session.users.id}]},function (err,rtn) {
+    if(err) throw err;
+    Student.find({class:req.params.id},function(err2,rtn2){
+      if(err2) throw err2;
+      res.render('teacher/manage', { title: 'Express', stu: rtn2, data: rtn, subj: req.params.sub, cla :req.params.id});
+    });
+  });
+});
+
 module.exports = router;

@@ -44,7 +44,7 @@ router.post('/parent', function(req, res) {
     if(err) throw err;
     if(rtn != null && rtn.password == req.body.password){
       req.session.users = {email: rtn.email, name: rtn.name, roll: "parent", id:rtn._id};
-      res.redirect('/home')
+      res.redirect('/parents/home')
     }else {
       res.redirect('/parent')
     }

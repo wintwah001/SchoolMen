@@ -16,6 +16,7 @@ var attendance = require('./routes/admin/attendances');
 var partent = require('./routes/admin/parents');
 
 var teachers = require('./routes/teachers');
+var parents = require('./routes/parents');
 
 var users = require('./routes/users');
 
@@ -66,6 +67,7 @@ app.use('/admin/attendances', attendance);
 app.use('/admin/parents', partent);
 
 app.use('/teachers', teachers);
+app.use('/parents', parents);
 
 app.use('/users', users);
 
