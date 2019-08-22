@@ -57,12 +57,13 @@ router.post('/teacherupdate', function(req,res,next){
     nrc : req.body.NRC,
     role : req.body.role,
     phno : req.body.tphno,
-    address : req.body.taddress
+    address : req.body.taddress,
+    desc: req.body.desc
  }
     Teacher.findByIdAndUpdate(req.body.id,{$set: update},function(err,rtn){
     if(err) throw err;
   console.log(rtn);
-  res.redirect('/admin/teachers/teacherlist/'+rtn._id);
+  res.redirect('/admin/teachers/teacherlist');
   });
 });
 
