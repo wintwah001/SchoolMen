@@ -185,21 +185,7 @@
 
             <ul class="navbar-nav">
 
-              <li class="nav-item dropdown">
-                <a class="nav-link" href="#pablo" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="material-icons">person</i>
-                  <p class="d-lg-none d-md-block">
-                    Account
-                  </p>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
-
-                  <a class="dropdown-item" href="/victory/index.html" >Go To Website</a>
-                  <a class="dropdown-item" href="/Login_v8/chgpsw.html">Change Password</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item btn btn-danger active" href="/Login_v8/index.html">Log out</a>
-                </div>
-              </li>
+              <%include ./partial/logout %>
             </ul>
           </div>
         </div>
@@ -269,7 +255,7 @@
                                 <i class="material-icons">people</i>
                               </div>
                               <p class="card-category">Total Student</p>
-                              <h3 class="card-title">18432
+                              <h3 class="card-title"><%= student %>
                                 <small>students</small>
                               </h3>
                             </div>
@@ -287,7 +273,7 @@
                                 <i class="material-icons">school</i>
                               </div>
                               <p class="card-category">Total Teacher</p>
-                              <h3 class="card-title">5000
+                              <h3 class="card-title"><%= teacher %>
                                 <small>teachers</small></h3>
                               </div>
                               <div class="card-footer">
@@ -305,7 +291,7 @@
                                   <i class="material-icons">directions_walk</i>
                                 </div>
                                 <p class="card-category">Total Staff</p>
-                                <h3 class="card-title">2000
+                                <h3 class="card-title"><%= staff %>
                                   <small>staffs</small></h3>
                                 </div>
                                 <div class="card-footer">

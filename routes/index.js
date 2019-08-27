@@ -87,7 +87,16 @@ router.post('/teacher', function (req,res) {
 })
 
 router.get('/home',(req,res)=>{
-  res.render("home")
+  Teacher.count(function (err,rtn) {
+    if(err) throw err;
+    Student.count(function(err2,rtn2){
+      if(err2) throw err2;
+      Staff.count(function (err3,rtn3) {
+        if(err3) throw err3;
+        res.render("home",{teacher:rtn,student:rtn2,staff:rtn3})
+      })
+    })
+  })
 });
 
 router.get('/premission',(req,res)=>{
@@ -144,6 +153,13 @@ router.post('/register',(req,res)=>{
   admin.email = req.body.email;
   admin.password = req.body.password;
   admin.save((err,rtn)=>{
+    if(err) throw err;
+    res.redirect('/');
+  })
+})
+
+router.get('/logout',function (req,res) {
+  req.session.destroy(function (err) {
     if(err) throw err;
     res.redirect('/');
   })

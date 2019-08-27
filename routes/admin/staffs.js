@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
-
+var Teacher = require('../../model/Teacher');
+var Student = require('../../model/Student')
 var Staff= require('../../model/Staff');
 
 
@@ -10,7 +11,16 @@ router.get('/staffadd',(req,res)=>{
 });
 
 router.get('/home',(req,res)=>{
-  res.render("staff/home")
+  Teacher.count(function (err,rtn) {
+    if(err) throw err;
+    Student.count(function(err2,rtn2){
+      if(err2) throw err2;
+      Staff.count(function (err3,rtn3) {
+        if(err3) throw err3;
+        res.render("staff/home",{teacher:rtn,student:rtn2,staff:rtn3})
+      })
+    })
+  })
 });
 
 router.post('/staffadd',(req,res)=>{
