@@ -30,7 +30,7 @@ var Schema = mongoose.Schema;
     },
 
     roll: {
-        type: String,
+        type: Number,
         required: true,
     },
 

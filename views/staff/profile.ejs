@@ -168,19 +168,18 @@
      </div>
      <div class="sidebar-wrapper">
       <ul class="nav">
-        <li class="nav-item active  ">
+        <li class="nav-item">
           <a class="nav-link" href="/admin/staffs/home">
             <i class="material-icons">account_balance</i>
             <p>Home</p>
           </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item active">
           <a class="nav-link" href="/admin/staffs/profile">
             <i class="material-icons">people</i>
             <p>Profile</p>
           </a>
         </li>
-
       </ul>
     </div>
   </div>
@@ -216,60 +215,35 @@
                 </div>
                     <div class="container">
                       <div class="row">
-                        <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
                           <div class="card card-stats">
                             <div class="card-header card-header-success card-header-icon">
                               <div class="card-icon">
                                 <i class="material-icons">people</i>
                               </div>
-                              <p class="card-category">Total Student</p>
-                              <h3 class="card-title"><%= student %>
-                                <small>students</small>
+                              <p class="card-category">Staff Details</p>
+                              <h3 class="card-title">
+                                <small>Staff profile</small>
                               </h3>
+                            </div>
+                            <div class="card-body">
+                              <h2 class="text-center"><%= staff.fullName %></h2>
+                              <h2 class="text-center"><%= staff.email %></h2>
+                              <h2 class="text-center"><%= staff.gender %></h2>
+                              <h2 class="text-center"><%= staff.nrc %></h2>
+                              <h2 class="text-center"><%= staff.dateOfBirth %></h2>
+                              <h2 class="text-center"><%= staff.duty %></h2>
+                              <h2 class="text-center"><%= staff.position %></h2>
+                              <h2 class="text-center"><%= staff.phNumber %></h2>
+                              <h2 class="text-center"><%= staff.address %></h2>
                             </div>
                             <div class="card-footer">
                               <div class="stats">
-                                Total Student Of Our School
+                                Staff detail Of Our School
                               </div>
                             </div>
                           </div>
                         </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                          <div class="card card-stats">
-                            <div class="card-header card-header-primary card-header-icon">
-                              <div class="card-icon">
-                                <i class="material-icons">school</i>
-                              </div>
-                              <p class="card-category">Total Teacher</p>
-                              <h3 class="card-title"><%= teacher %>
-                                <small>teachers</small></h3>
-                              </div>
-                              <div class="card-footer">
-                                <div class="stats">
-
-                                  Total Teacher Of Our School
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="card card-stats">
-                              <div class="card-header card-header-warning card-header-icon">
-                                <div class="card-icon">
-                                  <i class="material-icons">directions_walk</i>
-                                </div>
-                                <p class="card-category">Total Staff</p>
-                                <h3 class="card-title"><%= staff %>
-                                  <small>staffs</small></h3>
-                                </div>
-                                <div class="card-footer">
-                                  <div class="stats">
-
-                                    Total Staff Of Our School
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
 
                           </div>
 

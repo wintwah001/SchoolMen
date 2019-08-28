@@ -40,6 +40,31 @@ Student.find(function(err,rtn){
 });
 });
 
+router.post('/studentlist',function(req,res){
+  var val1;
+  var val2;
+  console.log(req.body.class, req.body.section);
+  if(req.body.section == 'a'){
+    val1 =  31;
+    val2 = 0;
+  }else if (req.body.section == 'b') {
+    val1 = 61;
+    val2 = 30;
+  }else if (req.body.section == 'c') {
+    val1 = 101;
+    val2 = 60;
+  }else {
+    val1 = 1000;
+    val2 = 0;
+  }
+  console.log(val1,val2);
+Student.find({$and:[{class:req.body.class},{roll:{$gt:val2,$lt:val1}}]},function(err,rtn){
+    if(err) throw err;
+    console.log(rtn);
+    res.render('student/student',{student:rtn});
+});
+});
+
 router.get('/update/:id', function (req,res) {
   Student.findById(req.params.id, function (err,rtn) {
     if(err) throw err;
@@ -79,4 +104,6 @@ Student.findByIdAndRemove(req.params.id,function (err,rtn) {
 
 });
 });
+
+
 module.exports = router;

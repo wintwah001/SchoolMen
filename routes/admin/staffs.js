@@ -23,6 +23,13 @@ router.get('/home',(req,res)=>{
   })
 });
 
+router.get('/profile',(req,res)=>{
+  Staff.findById(req.session.users.id,(err,rtn)=>{
+    if(err) throw err;
+    res.render("staff/profile",{staff:rtn})
+  })
+})
+
 router.post('/staffadd',(req,res)=>{
 var staff=new Staff();
 staff.fullName = req.body.name;
