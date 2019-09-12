@@ -67,4 +67,23 @@ router.post('/parentupdate',function (req,res) {
   });
 });
 
+router.post('/parentupdate2',function (req,res) {
+  console.log('callllll');
+  var update = {
+    name:req.body.name,
+    email:req.body.email,
+    password:req.body.password,
+    phone:req.body.phone,
+    address:req.body.address
+  }
+  Student.findOne({$and:[{fullName:req.body.fullName }, {class:req.body.class}]},(err,rtn)=>{
+    if(err) throw err;
+    if(rtn != null) update.student_id = rtn._id;
+    Parent.findByIdAndUpdate(req.body.id,{$set:update},(err2,rtn2)=>{
+      if(err2) throw err2;
+      res.redirect('/parents/home');
+    })
+  });
+});
+
 module.exports = router;

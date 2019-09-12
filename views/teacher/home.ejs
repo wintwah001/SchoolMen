@@ -80,19 +80,19 @@
 
                 </div>
                 <div class="card-body">
-                  <form>
+                  <form action="/admin/teachers/teacherupdate2" method="post">
                     <div class="row">
-
+                      <input type="hidden" name="id" value="<%= teacher._id %>">
                       <div class="col-md-6">
                         <div class="form-group">
                           <label class="bmd-label-floating">Name</label>
-                          <input type="text" name="name" class="form-control" value="<%= teacher.fullName %>" required="">
+                          <input type="text" name="tname" class="form-control" value="<%= teacher.fullName %>" required="">
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
                           <label class="bmd-label-floating">Email</label>
-                          <input type="email" name="email" class="form-control" value="<%= teacher.email %>" readonly required="">
+                          <input type="email" name="temail" class="form-control" value="<%= teacher.email %>" readonly required="">
                         </div>
                       </div>
                     </div>
@@ -100,13 +100,13 @@
                       <div class="col-md-6">
                         <div class="form-group">
                           <label class="bmd-label-floating">Password</label>
-                          <input type="password" name="password" class="form-control" value="<%= teacher.password %>" required="">
+                          <input type="password" name="pwd" class="form-control" value="<%= teacher.password %>" required="">
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
                           <label class="bmd-label-floating">Phone</label>
-                          <input type="text" name="phone" class="form-control" value="<%= teacher.phno %>" required="">
+                          <input type="text" name="tphno" class="form-control" value="<%= teacher.phno %>" required="">
                         </div>
                       </div>
 
@@ -115,7 +115,7 @@
                       <div class="col-md-12">
                         <div class="form-group">
                           <label class="bmd-label-floating">Address</label>
-                          <input type="text" name="address" class="form-control" value="<%= teacher.address %>" required="">
+                          <input type="text" name="taddress" class="form-control" value="<%= teacher.address %>" required="">
                         </div>
                       </div>
                     </div>

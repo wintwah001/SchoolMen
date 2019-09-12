@@ -67,6 +67,22 @@ router.post('/teacherupdate', function(req,res,next){
   });
 });
 
+router.post('/teacherupdate2', function(req,res,next){
+  console.log('call');
+  var update={
+    fullName : req.body.tname,
+    email : req.body.temail,
+    password : req.body.pwd,
+    phno : req.body.tphno,
+    address : req.body.taddress
+ }
+    Teacher.findByIdAndUpdate(req.body.id,{$set: update},function(err,rtn){
+    if(err) throw err;
+  console.log(rtn);
+  res.redirect('/teachers/home');
+  });
+});
+
 router.get('/teacherdelete/:id',function(req,res,next){
 Teacher.findByIdAndRemove(req.params.id,function (err,rtn) {
   if (err) throw err;
